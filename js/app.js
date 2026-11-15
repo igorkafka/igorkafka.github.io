@@ -3,6 +3,16 @@ $(function () {
 
   /* ---------- Skill modal data ---------- */
   var SKILL_DETAILS = {
+    linguagens: {
+      title: "Linguagens",
+      description: "Linguagens de programação que uso no dia a dia, do backend ao frontend.",
+      items: [
+        { name: "C#", desc: "Linguagem principal para desenvolvimento backend no ecossistema .NET." },
+        { name: "JavaScript", desc: "Linguagem base para lógica de frontend e scripts no navegador." },
+        { name: "TypeScript", desc: "Superset do JavaScript com tipagem estática, usado em projetos frontend maiores." },
+        { name: "Ruby", desc: "Linguagem usada em projetos backend com Ruby on Rails." }
+      ]
+    },
     backend: {
       title: "Backend",
       description: "Construção de APIs e aplicações backend robustas, com foco em manutenibilidade e performance.",
@@ -303,26 +313,6 @@ $(function () {
   } else {
     $(".reveal").addClass("is-visible");
   }
-
-  /* ---------- Skill bars fill ---------- */
-  var skillObserver = new IntersectionObserver(
-    function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          var $bar = $(entry.target);
-          var years = parseFloat($bar.data("years"));
-          var max = parseFloat($bar.data("max"));
-          var pct = Math.min(100, (years / max) * 100);
-          $bar.find(".skill-bar-fill").css("width", pct + "%");
-          skillObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.4 }
-  );
-  document.querySelectorAll(".skill-bar").forEach(function (el) {
-    skillObserver.observe(el);
-  });
 
   /* ---------- Typed role effect ---------- */
   var roles = [

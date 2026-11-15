@@ -120,11 +120,6 @@ html.dark .mobile-nav-link.active {
   color: #7dd3fc;
 }
 
-/* skill bar fill transition */
-.skill-bar-fill {
-  transition: width 1s ease-out;
-}
-
 /* repo card hover */
 .repo-card {
   transition: border-color .2s ease, transform .2s ease;
