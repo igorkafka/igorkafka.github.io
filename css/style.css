@@ -1,0 +1,129 @@
+html {
+  scroll-padding-top: 5rem;
+}
+
+::selection {
+  background-color: #38bdf8;
+  color: #0c1222;
+}
+
+/* custom scrollbar (page only) */
+html::-webkit-scrollbar {
+  width: 10px;
+}
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+html::-webkit-scrollbar-thumb {
+  background: #38bdf8;
+  border-radius: 999px;
+}
+
+/* slim scrollbar for code blocks */
+pre::-webkit-scrollbar {
+  height: 6px;
+}
+pre::-webkit-scrollbar-track {
+  background: transparent;
+}
+pre::-webkit-scrollbar-thumb {
+  background: rgb(255 255 255 / 0.15);
+  border-radius: 999px;
+}
+
+/* reveal-on-scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .6s ease-out, transform .6s ease-out;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* skill tag pill */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  background-color: rgb(14 165 233 / 0.08);
+  color: #0284c7;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid rgb(14 165 233 / 0.2);
+}
+html.dark .tag {
+  color: #7dd3fc;
+  background-color: rgb(56 189 248 / 0.1);
+  border-color: rgb(56 189 248 / 0.25);
+}
+
+/* contact card */
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 0.75rem;
+  border: 1px solid rgb(228 228 231);
+  padding: 1.25rem;
+  background-color: white;
+  transition: border-color .2s ease, transform .2s ease;
+}
+.contact-card:hover {
+  border-color: #38bdf8;
+  transform: translateY(-2px);
+}
+html.dark .contact-card {
+  background-color: #18181b;
+  border-color: rgb(255 255 255 / 0.1);
+}
+
+/* active nav link */
+.nav-link.active,
+.mobile-nav-link.active {
+  color: #0284c7;
+}
+html.dark .nav-link.active,
+html.dark .mobile-nav-link.active {
+  color: #7dd3fc;
+}
+
+/* skill bar fill transition */
+.skill-bar-fill {
+  transition: width 1s ease-out;
+}
+
+/* repo card hover */
+.repo-card {
+  transition: border-color .2s ease, transform .2s ease;
+}
+.repo-card:hover {
+  border-color: #38bdf8;
+  transform: translateY(-2px);
+}
+
+/* skill card hover (clickable) */
+.skill-card {
+  transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.skill-card:hover,
+.skill-card:focus-visible {
+  border-color: #38bdf8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -8px rgb(14 165 233 / 0.25);
+}
+.skill-card:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 2px;
+}
+
+/* skill modal */
+#skill-modal:not(.hidden) .skill-modal-panel {
+  animation: modal-in .2s ease-out;
+}
+@keyframes modal-in {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
