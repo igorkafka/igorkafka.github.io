@@ -10,7 +10,11 @@ $(function () {
         { name: "ASP.NET MVC", desc: "Framework da Microsoft para aplicações web seguindo o padrão Model-View-Controller." },
         { name: "ASP.NET Core", desc: "Versão moderna e multiplataforma do ASP.NET, usada para construir APIs e serviços web performáticos." },
         { name: "ASP.NET WebAPI", desc: "Framework para criação de serviços HTTP/REST dentro do ecossistema .NET." },
-        { name: "Ruby on Rails", desc: "Framework web em Ruby focado em convenção sobre configuração e produtividade no desenvolvimento." }
+        { name: "Ruby on Rails", desc: "Framework web em Ruby focado em convenção sobre configuração e produtividade no desenvolvimento." },
+        { name: "PHP", desc: "Linguagem de script amplamente usada no desenvolvimento web backend." },
+        { name: "Python", desc: "Linguagem versátil usada em APIs, automação e scripts de backend." },
+        { name: "Flask", desc: "Microframework Python minimalista para construir APIs e aplicações web de forma leve." },
+        { name: "FastAPI", desc: "Framework Python moderno e de alta performance para construir APIs, com tipagem e documentação automática." }
       ]
     },
     frontend: {
