@@ -119,7 +119,13 @@ $(function () {
     }
   });
 
-  $("#skill-modal-close, #skill-modal-backdrop").on("click", closeSkillModal);
+  $("#skill-modal-close").on("click", closeSkillModal);
+
+  $skillModal.on("click", function (e) {
+    if (!$(e.target).closest(".skill-modal-panel").length) {
+      closeSkillModal();
+    }
+  });
 
   $(document).on("keydown", function (e) {
     if (e.key === "Escape" && !$skillModal.hasClass("hidden")) {
