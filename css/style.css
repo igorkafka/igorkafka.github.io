@@ -2,6 +2,19 @@ html {
   scroll-padding-top: 5rem;
 }
 
+/* hero code tabs */
+.code-tab {
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  cursor: pointer;
+  transition: color .15s ease, border-color .15s ease;
+}
+.code-tab:hover {
+  color: #e4e4e7;
+}
+
 ::selection {
   background-color: #38bdf8;
   color: #0c1222;

@@ -133,6 +133,27 @@ $(function () {
     }
   });
 
+  /* ---------- Hero code tabs ---------- */
+  var $tabJson = $("#tab-json");
+  var $tabTs = $("#tab-ts");
+  var $codeJson = $("#code-json");
+  var $codeTs = $("#code-ts");
+
+  function activateTab(tab) {
+    var showJson = tab === "json";
+    $tabJson.toggleClass("border-brand-400 text-zinc-100", showJson).toggleClass("border-transparent text-zinc-500", !showJson);
+    $tabTs.toggleClass("border-brand-400 text-zinc-100", !showJson).toggleClass("border-transparent text-zinc-500", showJson);
+    $codeJson.toggleClass("hidden", !showJson);
+    $codeTs.toggleClass("hidden", showJson);
+  }
+
+  $tabJson.on("click", function () {
+    activateTab("json");
+  });
+  $tabTs.on("click", function () {
+    activateTab("ts");
+  });
+
   /* ---------- Theme toggle ---------- */
   var $html = $("html");
   var $sun = $("#icon-sun");
