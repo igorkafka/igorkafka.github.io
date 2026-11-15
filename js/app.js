@@ -83,6 +83,8 @@ $(function () {
   };
 
   var $skillModal = $("#skill-modal");
+  var $skillModalPanel = $(".skill-modal-panel");
+  var lastFocusedEl = null;
 
   function openSkillModal(key) {
     var detail = SKILL_DETAILS[key];
@@ -99,13 +101,35 @@ $(function () {
       $items.append($row);
     });
 
+    lastFocusedEl = document.activeElement;
     $skillModal.removeClass("hidden");
     $("body").addClass("overflow-hidden");
+    $skillModalPanel.trigger("focus");
   }
 
   function closeSkillModal() {
     $skillModal.addClass("hidden");
     $("body").removeClass("overflow-hidden");
+    if (lastFocusedEl && typeof lastFocusedEl.focus === "function") {
+      lastFocusedEl.focus();
+    }
+    lastFocusedEl = null;
+  }
+
+  function trapSkillModalFocus(e) {
+    var focusables = $skillModalPanel.find('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])').get();
+    if (!focusables.length) return;
+
+    var first = focusables[0];
+    var last = focusables[focusables.length - 1];
+
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
   }
 
   $(document).on("click", "[data-category]", function () {
@@ -128,8 +152,12 @@ $(function () {
   });
 
   $(document).on("keydown", function (e) {
-    if (e.key === "Escape" && !$skillModal.hasClass("hidden")) {
+    if ($skillModal.hasClass("hidden")) return;
+
+    if (e.key === "Escape") {
       closeSkillModal();
+    } else if (e.key === "Tab") {
+      trapSkillModalFocus(e);
     }
   });
 
