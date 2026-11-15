@@ -32,16 +32,33 @@ html::-webkit-scrollbar-thumb {
   border-radius: 999px;
 }
 
-/* slim scrollbar for code blocks */
-pre::-webkit-scrollbar {
+/* slim scrollbar for code blocks and the skill modal */
+pre::-webkit-scrollbar,
+.skill-modal-panel::-webkit-scrollbar {
+  width: 6px;
   height: 6px;
 }
-pre::-webkit-scrollbar-track {
+pre::-webkit-scrollbar-track,
+.skill-modal-panel::-webkit-scrollbar-track {
   background: transparent;
 }
 pre::-webkit-scrollbar-thumb {
   background: rgb(255 255 255 / 0.15);
   border-radius: 999px;
+}
+.skill-modal-panel::-webkit-scrollbar-thumb {
+  background: rgb(0 0 0 / 0.15);
+  border-radius: 999px;
+}
+.skill-modal-panel {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(0 0 0 / 0.15) transparent;
+}
+html.dark .skill-modal-panel::-webkit-scrollbar-thumb {
+  background: rgb(255 255 255 / 0.15);
+}
+html.dark .skill-modal-panel {
+  scrollbar-color: rgb(255 255 255 / 0.15) transparent;
 }
 
 /* reveal-on-scroll */
